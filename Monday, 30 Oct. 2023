@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+public class LearningCurve : MonoBehaviour
+
+    public string firstName = "Jason";
+    public int partyPosition = 0;
+
+void Start()
+{
+    Debug.Log($"My name is {firstName}.");
+    
+    //overrides public values.
+    FindPartyMembers(firstName, partyPosition);
+}
+
+public void FindPartyMembers(string firstName, int partyPosition)
+{
+    List<string> partyMembers = new List<string>()
+    { "George", "Joe", "Bob", "Robert rubber" };
+
+    partyMembers.Insert(partyPosition, firstName);
+
+    Debug.LogFormat("Party Members: {0}", partyMembers.Count);
+
+    for (int i = 0; i < partyMembers.Count; i++)
+    {
+        Debug.LogFormat("Index: {0} - {1}", i, partyMembers[i]);
+    }
+
+}
